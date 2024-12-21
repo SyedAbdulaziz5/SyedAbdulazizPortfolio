@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaLocationDot, FaPlus, FaMinus } from "react-icons/fa6";
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
-import FloatingPhone from "../assets/images/hero-bg.jpg";
+import FloatingPhone from "../assets/images/hero-bg.jpg"; // Example image
 import { motion } from "framer-motion";
 
+// Example video background
+import backgroundVideo from "../assets/videos/RotatingParticleGlobe.mp4"; // Your video path
+
 const Experience = () => {
-  const [openPanel, setOpenPanel] = useState(null); // State to track the currently opened panel
+  const [openPanel, setOpenPanel] = useState(null);
+  const videoRef = useRef(null); // Reference to the video element
+
+  // Adjust the video playback rate (default is 1, so 0.5 will slow it down)
+  const adjustVideoSpeed = () => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Adjust the playback rate (0.5 is slower)
+    }
+  }; // State to track the currently opened panel
 
   const items = [
     {
@@ -50,10 +61,20 @@ const Experience = () => {
   return (
     <motion.div
       id="experience"
-      className="flex flex-col justify-center items-center min-h-screen bg-[#1A191D] px-4 sm:px-16 md:px-16 lg:px-24"
+      style={{
+        background: `#1A191D`,
+        backgroundImage: `
+          repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 100%), 
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 100%)
+        `,
+        backgroundSize: "70px 70px",
+      }}
+      className="relative flex flex-col justify-center items-center min-h-screen bg-[#1A191D] px-4 sm:px-16 md:px-16 lg:px-24"
     >
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+
       <motion.h1
-        className="text-4xl md:text-6xl pb-3 lg:text-6xl text-white font-semibold font-poppins lg:leading-tight mb-6"
+        className="text-4xl md:text-6xl pb-3 lg:text-6xl text-white font-semibold font-poppins lg:leading-tight mb-6 z-10 relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -64,7 +85,7 @@ const Experience = () => {
         <motion.span className="lg:pl-4">Experience</motion.span>
       </motion.h1>
 
-      <div className="w-full max-w-4xl text-white">
+      <div className="w-full max-w-4xl text-white z-10 relative">
         {items.map(
           ({
             key,

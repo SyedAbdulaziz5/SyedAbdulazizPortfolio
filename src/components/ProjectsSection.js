@@ -124,13 +124,13 @@ const ProjectsSection = () => {
                   <p className="text-sm md:text-base font-medium text-[#BFBFC0] absolute inset-0 transition-all duration-500 transform group-hover:-translate-y-full group-hover:opacity-0">
                     Web Development
                   </p>
-                  <a
+                  <motion.a
                     href="/"
                     className="text-sm flex gap-2 md:text-base font-medium text-[#BFBFC0] hover:text-[#66D9ED] absolute inset-0 opacity-0 transform translate-y-full transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
                   >
                     View Project
                     <FaArrowRight className="my-1 text-xl" />
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.a>
