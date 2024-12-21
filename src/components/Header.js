@@ -9,7 +9,7 @@ const Navbar = () => {
   const navItems = [
     { name: "/ / home", href: "home", badge: "01" },
     { name: "/ / expertise", href: "expertise", badge: "02" },
-    { name: "/ / work", href: "work", badge: "03" },
+    { name: "/ / work", href: "MyWork", badge: "03" },
     { name: "/ / experience", href: "experience", badge: "04" },
     { name: "/ / contact", href: "contact", badge: "05" },
   ];
@@ -29,10 +29,10 @@ const Navbar = () => {
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 80, // Adjust for navbar height
-        behavior: "smooth", // Smooth scrolling
+        top: section.offsetTop - 80,
+        behavior: "smooth",
       });
-      setIsMenuOpen(false); // Close menu after clicking
+      setIsMenuOpen(false);
     }
   };
 
@@ -73,7 +73,9 @@ const Navbar = () => {
         </div>
         <div
           className={`items-center justify-between ${
-            isMenuOpen ? "block" : "hidden"
+            isMenuOpen
+              ? "block bg-gray-800 md:hidden p-4 rounded-lg "
+              : "hidden"
           } w-full md:flex md:w-auto md:order-1`}
           id="navbar-sticky"
         >
@@ -82,7 +84,7 @@ const Navbar = () => {
               <li key={index} className="relative">
                 <button
                   onClick={() => handleScrollTo(item.href)}
-                  className="text-[1rem] font-roboto py-2 px-3 rounded-md text-gray-300 hover:text-blue-500"
+                  className="text-[1.1rem] font-bold py-2 px-3 rounded-md transition-all duration-500 text-gray-300 hover:text-[#66D9ED]"
                 >
                   {item.name}
                   <span className="absolute top-0 right-0 -mr-2 inline-flex items-center justify-center w-5 h-5 text-[12px] font-semibold text-[#ddd]">

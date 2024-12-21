@@ -3,20 +3,17 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
   box-shadow: inset 0px -30px 30px 0px rgb(26, 25, 29),
     inset 0px -10px 10px 0px rgb(26, 25, 29);
 }
 #expertise {
-  background-image: url(./assets/images/expertise-bg.webp);
+  /* background-image: url(./assets/images/expertise-bg.webp); */
   background-size: 40%;
   background-position: bottom center;
   background-repeat: no-repeat;
-  height: 108vh;
+  min-height: 90vh;
   width: 100%;
 
-  /* Increase the height of the bottom shadow */
   box-shadow: inset 0px -150px 150px 0px rgb(26, 25, 29),
     inset 0px -40px 40px 0px rgb(26, 25, 29);
 }
@@ -45,4 +42,40 @@
   background-size: auto 100%;
   background-repeat: round;
   background-position: 0;
+}
+.text {
+  font-family: "Roboto Mono", serif;
+}
+::selection {
+  background-color: #fcb3bf;
+  color: #ffffff;
+}
+/* .imagesFilter {
+  filter: invert(100%);
+} */
+@keyframes moveDownFadeOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hover-icon {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.button:hover .hover-icon {
+  animation: moveDownFadeOut 1.5s ease-in-out infinite;
 }
