@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import CircleWidget from "./components/CircleWidget";
 import Expertise from "./components/Expertise";
 import Practice from "./components/Practice";
-import Chatbot from "./ChatBot/ChatBot";
+import OpenChatButton from "./ChatBot/ChatBot";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <AppRoutes />
       {/* <CircleWidget />   */}
       {/* <Practice /> */}
-      {/* <Chatbot /> */}
+      <OpenChatButton />
     </div>
   );
 }
